@@ -1,0 +1,42 @@
+#. module: web
+#. odoo-javascript
+#: code:addons/web/static/src/search/utils/dates.js:0
+msgid "Q1"
+msgstr "بهار"
+
+#. module: web
+#. odoo-javascript
+#: code:addons/web/static/src/search/utils/dates.js:0
+msgid "Q2"
+msgstr "تابستان"
+
+#. module: web
+#. odoo-javascript
+#: code:addons/web/static/src/search/utils/dates.js:0
+msgid "Q3"
+msgstr "پاییز"
+
+#. module: web
+#. odoo-javascript
+#: code:addons/web/static/src/search/utils/dates.js:0
+msgid "Q4"
+msgstr "زمستان"
+
+#. module: account
+#. odoo-python
+#: code:addons/account/models/account_journal_dashboard.py:0
+msgid "Not Due"
+msgstr "سررسید نیست"
+
+#. module: account
+#. odoo-python
+#: code:addons/account/models/account_journal_dashboard.py:0
+#: model:ir.model.fields,field_description:account.field_account_payment_term_line__value_amount
+msgid "Due"
+msgstr "سررسید"
+
+#. module: account
+#. odoo-python
+#: code:addons/account/models/account_journal_dashboard.py:0
+msgid "This Week"
+msgstr "این هفته"

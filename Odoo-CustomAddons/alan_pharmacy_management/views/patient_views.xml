@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- PATIENT VIEWS -->
+    <record id="view_alan_patient_list" model="ir.ui.view">
+        <field name="name">alan.pharma.patient.list</field>
+        <field name="model">alan.pharma.patient</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="mobile"/>
+                <field name="date_of_birth"/>
+                <field name="blood_group"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_alan_patient_form" model="ir.ui.view">
+        <field name="name">alan.pharma.patient.form</field>
+        <field name="model">alan.pharma.patient</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="mobile"/>
+                        <field name="email"/>
+                        <field name="date_of_birth"/>
+                        <field name="blood_group"/>
+                    </group>
+                    <notebook>
+                        <page string="Prescriptions">
+                            <field name="prescription_ids" nolabel="1">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="date"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_alan_patient" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">alan.pharma.patient</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_pharmacy_patients" name="Patients" parent="menu_pharmacy_root" action="action_alan_patient"/>
+
+
+</odoo>

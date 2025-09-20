@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="footer_external_layout" name="Footer Report">
+        <div dir="RTL" class="footer row justify-content-between mt-3 text-muted meta-data">
+            <div class="col-6 position-relative">
+                <small class="border-bottom border-dark px-5">مهر و امضا فروشنده</small>
+                <img class="signature img-fluid position-absolute" t-if="company.signature and not informal" t-att-src="image_data_uri(company.signature)" alt="Signature"/>
+            </div>
+            <div class="col-6 text-end">
+                <small class="border-bottom border-dark px-5">مهر و امضا خریدار</small>
+            </div>
+        </div>
+    </template>
+    <!-- sale.order report layout Landscape -->
+    <template id="sale_order_external_layout">
+        <t t-if="not o" t-set="o" t-value="doc"/>
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+        <t t-call="oe_general_reports.sale_order_external_layout_standard">
+            <t t-out="0"/>
+        </t>
+    </template>
+    <template id="sale_order_external_layout_standard">
+        <div dir="RTL" t-attf-class="header header--sale o_company_#{company.id}_layout" t-att-style="report_header_style">
+            <div class="row align-items-center mb-3">
+                <div class="col-4 align-self-center text-start">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo"/>
+                </div>
+                <div class="col-4 align-self-center text-center">
+                    <strong class="h6">
+                        <span t-if="o.state in ['draft','sent']">پیش فاکتور فروش کالا و خدمات</span>
+                        <span t-else="">سفارش فروش کالا و خدمات</span>
+                    </strong>
+                </div>
+                <div class="col-4 text-muted text-end meta-data">
+                    <div class="row gap-2">
+                        <div class="col-6 text-end fw-bold">تاریخ: </div>
+                        <div class="col-6 text-start">
+                            <span style="margin-right:1rem" t-field="o.date_order" t-field-options='{"format": "y/M/d"}'/>
+                        </div>
+                    </div>
+                    <div class="row gap-2">
+                        <div class="col-6 text-end fw-bold">شماره: </div>
+                        <div class="col-6 text-start">
+                            <span style="margin-right:1rem" t-field="o.name"/>
+                        </div>
+                    </div>
+                    <div class="row gap-2" t-if="report_type == 'pdf'">
+                        <div class="col-6 text-end fw-bold">صفحه: </div>
+                        <div class="col-6 text-start">
+                            <span style="margin-right:1rem" class="page"/> از
+                            <span class="topage"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div t-attf-class="article article--sale o_report_layout_standard o_company_#{company.id}_layout {{  'o_report_layout_background' if company.layout_background in ['Geometric', 'Custom']  else  '' }}" t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % company.layout_background_image.decode('utf-8') if company.layout_background_image and company.layout_background == 'Custom' else '/base/static/img/bg_background_template.jpg' if company.layout_background == 'Geometric' else ''}});" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <!-- <div class="pt-5"> -->
+            <!-- This div ensures that the address is not cropped by the header. -->
+            <!-- <t t-call="web.address_layout"/> -->
+            <!-- </div> -->
+            <t t-out="0"/>
+        </div>
+        <t t-call="oe_general_reports.footer_external_layout"/>
+    </template>
+    <!-- account.move report layout Landscape -->
+    <template id="account_move_external_layout">
+        <t t-if="not o" t-set="o" t-value="doc"/>
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+        <t t-call="oe_general_reports.account_move_external_layout_standard">
+            <t t-out="0"/>
+        </t>
+    </template>
+    <template id="account_move_external_layout_standard">
+        <div dir="RTL" t-attf-class="header header--invoice o_company_#{company.id}_layout" t-att-style="report_header_style">
+            <div class="row align-items-center mb-3">
+                <div class="col-4 align-self-center text-start">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo"/>
+                </div>
+                <div class="col-4 align-self-center text-center">
+                    <strong class="h6">
+                        <span t-if="not proforma"></span>
+                        <span t-else="">PROFORMA</span>
+                        <span t-if="o.move_type == 'out_invoice' and o.state == 'posted'">صورتحساب کالا و خدمات</span>
+                        <span t-elif="o.move_type == 'out_invoice' and o.state == 'draft'">پیشنویس صورتحساب کالا و خدمات</span>
+                        <span t-elif="o.move_type == 'out_invoice' and o.state == 'cancel'">صورتحساب لغو شده کالا و خدمات</span>
+                        <span t-elif="o.move_type == 'out_refund' and o.state == 'posted'">یادداشت اعتباری</span>
+                        <span t-elif="o.move_type == 'out_refund' and o.state == 'draft'">پیش نویس یادداشت اعتباری</span>
+                        <span t-elif="o.move_type == 'out_refund' and o.state == 'cancel'">یادداشت اعتباری لغو شده</span>
+                        <span t-elif="o.move_type == 'in_refund'">یادداشت اعتباری فروشنده</span>
+                        <span t-elif="o.move_type == 'in_invoice'">قبض فروشنده</span>
+                    </strong>
+                </div>
+                <div class="col-4 text-muted text-end meta-data">
+                    <div class="row gap-2">
+                        <div class="col-6 text-end fw-bold">
+                            <t t-if="o.move_type == 'out_invoice'">
+                                تاریخ صورتحساب:
+                            </t>
+                            <t t-elif="o.move_type == 'out_refund'">
+                                تاریخ یادداشت اعتباری:
+                            </t>
+                            <t t-elif="o.move_type == 'out_receipt'">
+                                تاریخ رسید:
+                            </t>
+                            <t t-else="">
+                                تاریخ:
+                            </t>
+                        </div>
+                        <div class="col-6 text-start">
+                            <span style="margin-right:1rem" t-field="o.invoice_date" t-field-options='{"format": "y/M/d"}'/>
+                        </div>
+                    </div>
+                    <div class="row gap-2">
+                        <div class="col-6 text-end fw-bold">شماره: </div>
+                        <div class="col-6 text-start">
+                            <span style="margin-right:1rem" t-field="o.name"/>
+                        </div>
+                    </div>
+                    <div class="row gap-2" t-if="report_type == 'pdf'">
+                        <div class="col-6 text-end fw-bold">صفحه: </div>
+                        <div class="col-6 text-start">
+                            <span style="margin-right:1rem" class="page"/> از
+                            <span class="topage"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div t-attf-class="article article--invoice o_report_layout_standard o_company_#{company.id}_layout {{  'o_report_layout_background' if company.layout_background in ['Geometric', 'Custom']  else  '' }}" t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % company.layout_background_image.decode('utf-8') if company.layout_background_image and company.layout_background == 'Custom' else '/base/static/img/bg_background_template.jpg' if company.layout_background == 'Geometric' else ''}});" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <t t-out="0"/>
+        </div>
+        <t t-call="oe_general_reports.footer_external_layout"/>
+    </template>
+</odoo>

@@ -1,0 +1,645 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* oe_general_reports
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e-20240513\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-12 13:01+0000\n"
+"PO-Revision-Date: 2025-05-12 16:40+0330\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Generator: Poedit 3.6\n"
+
+#. module: oe_general_reports
+#: model:ir.actions.report,print_report_name:oe_general_reports.action_report_account_invoices
+#: model:ir.actions.report,print_report_name:oe_general_reports.action_report_account_invoices_without_payment
+msgid "(object._get_report_base_filename())"
+msgstr ""
+
+#. module: oe_general_reports
+#: model:ir.actions.report,print_report_name:oe_general_reports.action_report_saleorder_formal
+msgid ""
+"(object.state in ('draft', 'sent') and 'Formal Quotation - A4 Landscape - %s' % "
+"(object.name)) or 'Formal Order - A4 Landscape - %s' % (object.name)"
+msgstr ""
+"(object.state in ('draft', 'sent') and 'پیش فاکتور رسمی - %s' % (object.name)) "
+"or 'سفارش فروش رسمی - %s' % (object.name)"
+
+#. module: oe_general_reports
+#: model:ir.actions.report,print_report_name:oe_general_reports.action_report_saleorder_informal
+msgid ""
+"(object.state in ('draft', 'sent') and 'Informal Quotation - A4 Landscape - %s' "
+"% (object.name)) or 'Informal Order - A4 Landscape - %s' % (object.name)"
+msgstr ""
+"(object.state in ('draft', 'sent') and 'پیش فاکتور غیر رسمی - %s' % (object."
+"name)) or 'سفارش فروش غیر رسمی - %s' % (object.name)"
+
+#. module: oe_general_reports
+#. odoo-javascript
+#: code:addons/oe_general_reports/static/src/overrides/components/order_widget/order_widget.xml:0
+#, python-format
+msgid "3/875/000"
+msgstr ""
+
+#. module: oe_general_reports
+#. odoo-javascript
+#: code:addons/oe_general_reports/static/src/overrides/components/order_widget/order_widget.xml:0
+#, python-format
+msgid "4/262/500"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.footer_external_layout
+msgid "<small class=\"border-bottom border-dark px-5\">مهر و امضا خریدار</small>"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.footer_external_layout
+msgid "<small class=\"border-bottom border-dark px-5\">مهر و امضا فروشنده</small>"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.sale_order_external_layout_standard
+msgid ""
+"<span style=\"margin-right:1rem\" class=\"page\"/> از\n"
+"                            <span class=\"topage\"/>"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "<span>نشانی کامل: </span>"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "<strong class=\"d-inline-block mb-2\">توضیحات: </strong>"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "<strong>جمع کل (ریال)</strong>"
+msgstr ""
+
+#. module: oe_general_reports
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_bank_statement_line__amount_discounted
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_move__amount_discounted
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_payment__amount_discounted
+#: model:ir.model.fields,field_description:oe_general_reports.field_sale_order__amount_discounted
+msgid "Amount Discounted"
+msgstr ""
+
+#. module: oe_general_reports
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_move_line__amount_per_line
+#: model:ir.model.fields,field_description:oe_general_reports.field_sale_order_line__amount_per_line
+msgid "Amount Per Line"
+msgstr ""
+
+#. module: oe_general_reports
+#: model:ir.model.fields,field_description:oe_general_reports.field_sale_order_line__amount_plus_tax_per_line
+msgid "Amount Plus Tax Per Line"
+msgstr ""
+
+#. module: oe_general_reports
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_bank_statement_line__amount_undiscounted
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_move__amount_undiscounted
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_payment__amount_undiscounted
+msgid "Amount Undiscounted"
+msgstr ""
+
+#. module: oe_general_reports
+#: model:ir.model.fields,help:oe_general_reports.field_base_document_layout__signature
+#: model:ir.model.fields,help:oe_general_reports.field_res_company__signature
+msgid "Attach the signature here"
+msgstr ""
+
+#. module: oe_general_reports
+#: model:ir.model,name:oe_general_reports.model_res_company
+msgid "Companies"
+msgstr "شرکت‌ها"
+
+#. module: oe_general_reports
+#: model:ir.model,name:oe_general_reports.model_base_document_layout
+msgid "Company Document Layout"
+msgstr "طرح بندی اسناد شرکت"
+
+#. module: oe_general_reports
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_move_line__discount_per_line
+#: model:ir.model.fields,field_description:oe_general_reports.field_sale_order_line__discount_per_line
+msgid "Discount Per Line"
+msgstr ""
+
+#. module: oe_general_reports
+#: model:ir.actions.report,name:oe_general_reports.action_report_saleorder_formal
+msgid "Formal Quotation / Order - A4 Landscape"
+msgstr "پیش فاکتور / سفارش رسمی"
+
+#. module: oe_general_reports
+#. odoo-javascript
+#: code:addons/oe_general_reports/static/src/overrides/components/order_line/order_line.xml:0
+#, python-format
+msgid "Free"
+msgstr ""
+
+#. module: oe_general_reports
+#: model:ir.actions.report,name:oe_general_reports.action_report_saleorder_informal
+msgid "Informal Quotation / Order - A4 Landscape"
+msgstr "پیش فاکتور / سفارش غیر رسمی"
+
+#. module: oe_general_reports
+#: model:ir.actions.report,name:oe_general_reports.action_report_account_invoices
+msgid "Invoice - A4 Landscape"
+msgstr "فاکتور رسمی"
+
+#. module: oe_general_reports
+#: model:ir.actions.report,name:oe_general_reports.action_report_account_invoices_without_payment
+msgid "Invoices without Payment - A4 Landscape"
+msgstr "فاکتور رسمی بدون پرداخت"
+
+#. module: oe_general_reports
+#: model:ir.model,name:oe_general_reports.model_account_move
+msgid "Journal Entry"
+msgstr "سند دفترروزنامه‌"
+
+#. module: oe_general_reports
+#: model:ir.model,name:oe_general_reports.model_account_move_line
+msgid "Journal Item"
+msgstr "آیتم دفترروزنامه"
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.sale_order_external_layout_standard
+msgid "Logo"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+msgid "PROFORMA"
+msgstr ""
+
+#. module: oe_general_reports
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_move_line__price_tax
+msgid "Price Tax"
+msgstr ""
+
+#. module: oe_general_reports
+#: model:ir.model,name:oe_general_reports.model_sale_order
+msgid "Sales Order"
+msgstr "سفارش فروش"
+
+#. module: oe_general_reports
+#: model:ir.model,name:oe_general_reports.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "سطر سفارش‌فروش"
+
+#. module: oe_general_reports
+#: model:ir.model.fields,field_description:oe_general_reports.field_base_document_layout__signature
+#: model:ir.model.fields,field_description:oe_general_reports.field_res_company__signature
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.footer_external_layout
+msgid "Signature"
+msgstr ""
+
+#. module: oe_general_reports
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_bank_statement_line__subtotal_amount_per_line
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_move__subtotal_amount_per_line
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_payment__subtotal_amount_per_line
+#: model:ir.model.fields,field_description:oe_general_reports.field_sale_order__subtotal_amount_per_line
+msgid "Subtotal Amount Per Line"
+msgstr ""
+
+#. module: oe_general_reports
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_bank_statement_line__subtotal_amount_plus_tax_per_line
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_move__subtotal_amount_plus_tax_per_line
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_payment__subtotal_amount_plus_tax_per_line
+#: model:ir.model.fields,field_description:oe_general_reports.field_sale_order__subtotal_amount_plus_tax_per_line
+msgid "Subtotal Amount Plus Tax Per Line"
+msgstr ""
+
+#. module: oe_general_reports
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_bank_statement_line__subtotal_discount
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_move__subtotal_discount
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_payment__subtotal_discount
+#: model:ir.model.fields,field_description:oe_general_reports.field_sale_order__subtotal_discount
+msgid "Subtotal Discount"
+msgstr ""
+
+#. module: oe_general_reports
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_bank_statement_line__total_discount
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_move__total_discount
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_payment__total_discount
+#: model:ir.model.fields,field_description:oe_general_reports.field_sale_order__total_discount
+msgid "Total Discount"
+msgstr ""
+
+#. module: oe_general_reports
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_bank_statement_line__total_taxes
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_move__total_taxes
+#: model:ir.model.fields,field_description:oe_general_reports.field_account_payment__total_taxes
+#: model:ir.model.fields,field_description:oe_general_reports.field_sale_order__total_taxes
+msgid "Total Taxes"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "استان:"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+msgid "تاریخ"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+msgid "تاریخ رسید:"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+msgid "تاریخ صورتحساب:"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+msgid "تاریخ یادداشت اعتباری:"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.sale_order_external_layout_standard
+msgid "تاریخ:"
+msgstr ""
+
+#. module: oe_general_reports
+#. odoo-javascript
+#: code:addons/oe_general_reports/static/src/overrides/components/order_widget/order_widget.xml:0
+#, python-format
+msgid "تعداد"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+msgid ""
+"تعداد /\n"
+"                                    <br/>\n"
+"                            مقدار"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid ""
+"تعداد /\n"
+"                                    <br/>\n"
+"                        مقدار"
+msgstr ""
+
+#. module: oe_general_reports
+#. odoo-javascript
+#: code:addons/oe_general_reports/static/src/overrides/components/order_widget/order_widget.xml:0
+#, python-format
+msgid "تعداد آیتم"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+msgid "توضیحات:"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid ""
+"جمع\n"
+"                                    <br/>مالیات و عوارض (ریال)"
+msgstr ""
+
+#. module: oe_general_reports
+#. odoo-javascript
+#: code:addons/oe_general_reports/static/src/overrides/components/order_widget/order_widget.xml:0
+#, python-format
+msgid "جمع کل (ریال)"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "ردیف"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.sale_order_external_layout_standard
+msgid "سفارش فروش کالا و خدمات"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid ""
+"شرح\n"
+"                                    <br/>کالا یا خدمت"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "شماره اقتصادی:"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "شماره تماس ثابت:"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "شماره تماس همراه:‌"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "شماره ثبت:‌"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.sale_order_external_layout_standard
+msgid "شماره:"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+msgid ""
+"شناسه\n"
+"                                    <br/>\n"
+"                            کالا یا خدمت"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid ""
+"شناسه\n"
+"                                    <br/>\n"
+"                        کالا یا خدمت"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "شناسه ملی/کد ملی:"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "شناسه ملی:"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "شهر:"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.sale_order_external_layout_standard
+msgid "صفحه:"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+msgid "صورتحساب لغو شده کالا و خدمات"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+msgid "صورتحساب کالا و خدمات"
+msgstr ""
+
+#. module: oe_general_reports
+#. odoo-javascript
+#: code:addons/oe_general_reports/static/src/overrides/components/order_widget/order_widget.xml:0
+#, python-format
+msgid "فی (ریال)"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+msgid "قبض فروشنده"
+msgstr ""
+
+#. module: oe_general_reports
+#. odoo-javascript
+#: code:addons/oe_general_reports/static/src/overrides/components/order_widget/order_widget.xml:0
+#, python-format
+msgid "قیمت کل"
+msgstr ""
+
+#. module: oe_general_reports
+#. odoo-javascript
+#: code:addons/oe_general_reports/static/src/overrides/components/order_widget/order_widget.xml:0
+#, python-format
+msgid "مالیات بر ارزش افزوده (ریال)"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+msgid ""
+"مبلغ\n"
+"                                    <br/>\n"
+"                            تخفیف (ریال)"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+msgid ""
+"مبلغ\n"
+"                                    <br/>\n"
+"                            واحد (ریال)"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+msgid ""
+"مبلغ\n"
+"                                    <br/>\n"
+"                            پس از تخفیف (ریال)"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid ""
+"مبلغ\n"
+"                                    <br/>\n"
+"                        تخفیف (ریال)"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid ""
+"مبلغ\n"
+"                                    <br/>\n"
+"                        واحد (ریال)"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+msgid "مبلغ (ریال)"
+msgstr ""
+
+#. module: oe_general_reports
+#. odoo-javascript
+#: code:addons/oe_general_reports/static/src/overrides/components/order_widget/order_widget.xml:0
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+#, python-format
+msgid "مبلغ قابل پرداخت (ریال)"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+msgid ""
+"مبلغ پس از تخفیف\n"
+"                                    <br/>\n"
+"                            بعلاوه جمع مالیات و عوارض (ریال)"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid ""
+"مبلغ پس از تخفیف\n"
+"                                    <br/>\n"
+"                        بعلاوه جمع مالیات و عوارض (ریال)"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid ""
+"مبلغ کل\n"
+"                                    <br/>\n"
+"                        پس از تخفیف (ریال)"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid ""
+"مبلغ کل\n"
+"                                    <br/>قبل از تخفیف (ریال)"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "مشخصات خریدار"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "مشخصات فروشنده"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "مشخصات کالا یا خدمات مورد معامله"
+msgstr ""
+
+#. module: oe_general_reports
+#. odoo-javascript
+#: code:addons/oe_general_reports/static/src/overrides/components/order_widget/order_widget.xml:0
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+#, python-format
+msgid "میزان تخفیف کلی (ریال)"
+msgstr ""
+
+#. module: oe_general_reports
+#. odoo-javascript
+#: code:addons/oe_general_reports/static/src/overrides/components/order_widget/order_widget.xml:0
+#, python-format
+msgid "نام آیتم"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "نام شخص حقیقی/حقوقی:"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "نشانی:"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+msgid ""
+"واحد\n"
+"                                    <br/>\n"
+"                            اندازه‌گیری"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid ""
+"واحد\n"
+"                                    <br/>\n"
+"                        اندازه‌گیری"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+msgid "پرداخت‌ها"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.sale_order_external_layout_standard
+msgid "پیش فاکتور فروش کالا و خدمات"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+msgid "پیش نویس یادداشت اعتباری"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+msgid "پیشنویس صورتحساب کالا و خدمات"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_invoice_document_content
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.report_saleorder_document_content
+msgid "کد پستی ۱۰ رقمی:‌"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+msgid "یادداشت اعتباری"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+msgid "یادداشت اعتباری فروشنده"
+msgstr ""
+
+#. module: oe_general_reports
+#: model_terms:ir.ui.view,arch_db:oe_general_reports.account_move_external_layout_standard
+msgid "یادداشت اعتباری لغو شده"
+msgstr ""

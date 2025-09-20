@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="email_template_expiry_alert" model="mail.template">
+    <field name="name">Batch Expiry Alert</field>
+    <field name="email_from">${(user.email or 'no-reply@example.com')|safe}</field>
+    <field name="subject">Expiry Alert: Batch ${object.name}</field>
+    <field name="model_id" ref="model_alan_pharma_batch"/>
+    <field name="body_html"><![CDATA[
+      <p>Dear User,</p>
+      <p>Batch <strong>${object.name}</strong> of medicine <strong>${object.medicine_id.name}</strong> is expiring on <strong>${object.expiry_date}</strong>.</p>
+      <p>Quantity: ${object.quantity}</p>
+      <p>Please take appropriate action.</p>
+    ]]></field>
+  </record>
+</odoo>

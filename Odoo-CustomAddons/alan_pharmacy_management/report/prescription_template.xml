@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="prescription_template">
+    <t t-call="web.html_container">
+      <t t-call="web.external_layout">
+        <div class="page">
+          <h2>Prescription - <span t-esc="doc.name"/></h2>
+          <p><strong>Patient:</strong> <span t-esc="doc.patient_id.name"/></p>
+          <p><strong>Doctor:</strong> <span t-esc="doc.doctor_id.name"/></p>
+          <p><strong>Date:</strong> <span t-esc="doc.date"/></p>
+
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th>Medicine</th>
+                <th>Batch</th>
+                <th>Qty</th>
+                <th>Dose</th>
+                <th>Frequency</th>
+              </tr>
+            </thead>
+            <tbody>
+              <t t-foreach="doc.line_ids" t-as="l">
+                <tr>
+                  <td><span t-esc="l.medicine_id.name"/></td>
+                  <td><span t-esc="l.batch_id.name or '-'"/></td>
+                  <td><span t-esc="l.qty"/></td>
+                  <td><span t-esc="l.dose or '-'"/></td>
+                  <td><span t-esc="l.frequency or '-'"/></td>
+                </tr>
+              </t>
+            </tbody>
+          </table>
+
+          <div class="mt-4">
+            <p>Notes:</p>
+            <div t-esc="doc.note or ''"/>
+          </div>
+        </div>
+      </t>
+    </t>
+  </template>
+</odoo>

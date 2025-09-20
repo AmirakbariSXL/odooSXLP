@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Landscape Report -->
+        <template id="report_invoice" name="Report Invoice" >
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="lang" t-value="o.partner_id.lang"/>
+                    <t 
+                       t-call="oe_general_reports.report_invoice_document_content"
+                       t-lang="lang"/>
+                </t>
+            </t>
+        </template>
+        <template id="report_invoice_with_payments" name="Report Invoice with Payments">
+            <t t-call="oe_general_reports.report_invoice">
+                <t t-set="print_with_payments" t-value="True"/>
+            </t>
+        </template>
+        <template id="report_invoice_document_content">
+            <t t-call="oe_general_reports.account_move_external_layout">
+                <t t-set="o" t-value="o.with_context(lang=lang)" />
+                <div class="page page--invoice" dir="RTL">
+                    <table width="100%" border="1">
+                        <colgroup>
+                            <col span="1" style="width: 5%;" />
+                            <col span="1" style="width: 8%;" />
+                            <col span="1" style="width: 15%;" />
+                            <col span="1" style="width: 8%;" />
+                            <col span="1" style="width: 5%;" />
+                            <col span="1" style="width: 10%;" />
+                            <col span="1" style="width: 9%;" />
+                            <col span="1" style="width: 9%;" />
+                            <col span="1" style="width: 10%;" />
+                            <col span="1" style="width: 9%;" />
+                            <col span="1" style="width: 12%;" />
+                        </colgroup>
+                        <thead class="text-center">
+                            <tr>
+                                <th
+                                colspan="11"
+                                class="bg-light-gray"
+                            >
+                                مشخصات فروشنده
+                            </th>
+                            </tr>
+                            <tr class="text-start">
+                                <th colspan="4">
+                                نام شخص حقیقی/حقوقی:
+                                    <strong t-esc="o.company_id.name"/>
+                                </th>
+                                <th colspan="4">
+                                شماره تماس ثابت:
+                                    <strong t-esc="o.company_id.phone" class="o_force_ltr"/>
+                                </th>
+                                <th colspan="3">
+                                شماره تماس همراه:‌
+                                    <strong t-esc="o.company_id.mobile" class="o_force_ltr"/>
+                                </th>
+                            </tr>
+                            <tr class="text-start">
+                                <th colspan="4">
+                                شناسه ملی:
+                                    <strong t-esc="o.company_id.vat"/>
+                                </th>
+                                <th colspan="4">
+                                شماره ثبت:‌
+                                    <strong t-esc="o.company_id.company_registry" class="o_force_ltr"/>
+                                </th>
+                                <th colspan="3">
+                                    کد پستی ۱۰ رقمی:‌
+                                    <strong t-esc="o.company_id.zip"/>
+                                </th>
+                            </tr>
+                            <tr class="text-start">
+                                <th colspan="11">
+                                    <span class="d-flex gap-2">
+                                        <span>نشانی کامل: </span>
+                                        <span class="d-flex gap-5">
+                                            <span class="mx-4">استان:
+                                                <strong t-esc="o.company_id.state_id.name"/>
+                                            </span>
+                                            <!-- <span class="mx-4">شهرستان: <strong t-esc="o.company_id.city"/></span> -->
+                                            <span class="mx-4">شهر:
+                                                <strong t-esc="o.company_id.city"/>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </th>
+                            </tr>
+                            <tr class="text-start">
+                                <th colspan="11">
+                                    نشانی:
+                                    <strong t-field="o.company_id.street" />
+                                    <strong t-field="o.company_id.street2" />
+                                </th>
+                            </tr>
+                            <tr>
+                                <th
+                                    colspan="11"
+                                    class="bg-light-gray"
+                                >
+                                    مشخصات خریدار
+                                </th>
+                            </tr>
+                            <tr class="text-start">
+                                <th colspan="4">
+                                    نام شخص حقیقی/حقوقی:
+                                    <strong t-field="o.partner_id.name" />
+                                </th>
+                                <th colspan="4">
+                                    شماره تماس ثابت:
+                                    <strong t-esc="o.partner_id.phone" class="o_force_ltr"/>
+                                </th>
+                                <th colspan="3">
+                                    شماره تماس همراه:‌
+                                    <strong t-esc="o.partner_id.mobile" class="o_force_ltr"/>
+                                </th>
+                            </tr>
+                            <tr class="text-start">
+                                <th colspan="4">
+                                    شناسه ملی/کد ملی:
+                                    <strong t-field="o.partner_id.vat" />
+                                </th>
+                                <th colspan="4">
+                                    شماره ثبت:‌
+                                    <strong t-field="o.partner_id.company_registry" />
+                                </th>
+                                <th colspan="3">
+                                    کد پستی ۱۰ رقمی:‌
+                                    <strong t-field="o.partner_id.zip" />
+                                </th>
+                            </tr>
+                            <tr class="text-start">
+                                <th colspan="11">
+                                    <span class="d-flex gap-2">
+                                        <span>نشانی کامل: </span>
+                                        <span class="d-flex gap-5">
+                                            <span class="mx-4">استان:
+                                                <strong t-field="o.partner_id.state_id.name" />
+                                            </span>
+                                            <!-- <span class="mx-4">شهرستان:</span> -->
+                                            <span class="mx-4">شهر:
+                                                <strong t-field="o.partner_id.city" />
+                                            </span>
+                                        </span>
+                                    </span>
+                                </th>
+                            </tr>
+                            <tr class="text-start">
+                                <th colspan="11">
+                                    نشانی:
+                                    <strong t-field="o.partner_id.street" />
+                                    <strong t-field="o.partner_id.street2" />
+                                </th>
+                            </tr>
+                            <tr>
+                                <th
+                                    colspan="11"
+                                    class="bg-light-gray"
+                                >
+                                    مشخصات کالا یا خدمات مورد معامله
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>ردیف</th>
+                                <th>
+                            شناسه
+                                    <br />
+                            کالا یا خدمت
+                                </th>
+                                <th>شرح
+                                    <br />کالا یا خدمت
+                                </th>
+                                <th>
+                            واحد
+                                    <br />
+                            اندازه‌گیری
+                                </th>
+                                <th>
+                            تعداد /
+                                    <br />
+                            مقدار
+                                </th>
+                                <th>
+                            مبلغ
+                                    <br />
+                            واحد (ریال)
+                                </th>
+                                <th>مبلغ کل
+                                    <br />قبل از تخفیف (ریال)
+                                </th>
+                                <th>
+                            مبلغ
+                                    <br />
+                            تخفیف (ریال)
+                                </th>
+                                <th>
+                            مبلغ
+                                    <br />
+                            پس از تخفیف (ریال)
+                                </th>
+                                <th>جمع
+                                    <br />مالیات و عوارض (ریال)
+                                </th>
+                                <th>
+                            مبلغ پس از تخفیف
+                                    <br />
+                            بعلاوه جمع مالیات و عوارض (ریال)
+                                </th>
+                            </tr>
+                        </thead>
+                        <t t-set="lines_to_report" t-value="o.invoice_line_ids.sorted(key=lambda l: (-l.sequence, l.date, l.move_name, -l.id), reverse=True)"/>
+                        <tbody>
+                            <t t-foreach="lines_to_report" t-as="line">
+                                <tr t-if="o.company_id.sale_discount_product_id.id != line.product_id.id">
+                                    <td class="text-center">
+                                        <span t-esc="(line_index+1)"/>
+                                    </td>
+                                    <td class="text-right"></td>
+                                    <td class="text-right">
+                                        <span t-esc="line.product_id.name"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-field="line.product_uom_id.name"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="'{:,}'.format(int(line.quantity))" />
+                                    </td>
+                                    <td class="text-start">
+                                        <span t-esc="'{:,}'.format(int(line.price_unit))" />
+                                    </td>
+                                    <td class="text-start">
+                                        <span t-esc="'{:,}'.format(int(line.amount_per_line))" />
+                                    </td>
+                                    <td class="text-start">
+                                        <span t-esc="'{:,}'.format(int(line.discount_per_line))" />
+                                    </td>
+                                    <td class="text-start">
+                                        <span t-esc="'{:,}'.format(int(line.price_subtotal))" />
+                                    </td>
+                                    <td class="text-start">
+                                        <span t-esc="'{:,}'.format(int(line.price_tax))" />
+                                    </td>
+                                    <td class="text-start">
+                                        <span t-esc="'{:,}'.format(int(line.price_total))" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                        <tfoot>
+                            <t t-set="payments_vals" t-value="o.sudo().invoice_payments_widget and o.sudo().invoice_payments_widget['content'] or []"/>
+                            <tr>
+                                <td colspan="6" class="text-end">
+                                    <strong>جمع کل (ریال)</strong>
+                                </td>
+                                <td>
+                                    <span t-esc="'{:,}'.format(int(o.subtotal_amount_per_line))" />
+                                </td>
+                                <td>
+                                    <span t-esc="'{:,}'.format(int(o.subtotal_discount))" />
+                                </td>
+                                <td>
+                                    <span t-esc="'{:,}'.format(int(o.amount_discounted))" />
+                                </td>
+                                <td>
+                                    <span t-esc="'{:,}'.format(int(o.total_taxes))" />
+                                </td>
+                                <td>
+                                    <span t-esc="'{:,}'.format(int(o.amount_total))" />
+                                </td>
+                            </tr>
+                            <tr class="bg-light-gray">
+                                <th colspan="10" class="text-end">میزان تخفیف کلی (ریال)</th>
+                                <th class="text-start">
+                                    <span t-esc="'{:,}'.format(int(o.total_discount))" />
+                                </th>
+                            </tr>
+                            <tr class="bg-light-gray">
+                                <th colspan="10" class="text-end">مبلغ قابل پرداخت (ریال)</th>
+                                <th class="text-start">
+                                    <span t-esc="'{:,}'.format(int(o.amount_total))" />
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="description container-fluid mt-3">
+                        <div class="row">
+                            <div t-att-class="'col-8' if print_with_payments and len(payments_vals)>0 else 'col'">
+                                <strong t-if="o.narration">توضیحات: </strong>
+                                <t t-esc="o.narration"/>
+                            </div>
+                            <div class="col-4" t-if="print_with_payments and len(payments_vals)>0">
+                                <div class="border border-dark text-center py-2">
+                                    <div class="border border-dark bg-light-gray py-2 rounded mx-3 mb-2">پرداخت‌ها</div>
+                                    <div class="row mb-2">
+                                        <div class="col-2">#</div>
+                                        <div class="col-5">تاریخ</div>
+                                        <div class="col-5">مبلغ (ریال)</div>
+                                    </div>
+                                    <t t-foreach="payments_vals" t-as="payment_vals">
+                                        <div class="row" t-if="payment_vals['is_exchange'] == 0">
+                                            <div class="col-2">
+                                                        (
+                                                <t t-esc="payment_vals_index+1"/>)
+                                            </div>
+                                            <div class="col-5">
+                                                <!-- <t t-out="payment_vals['date']" t-options='{"widget": "date"}'>2021-09-19</t> -->
+                                                <t t-esc="payment_vals['date']" t-options="{'widget': 'date', 'format': 'y/M/d'}"/>
+                                            </div>
+                                            <div class="col-5">
+                                                <!-- <span t-out="payment_vals['amount']" t-options='{"widget": "monetary", "display_currency": o.currency_id}'>20.00</span> -->
+                                                <span t-esc="'{:,}'.format(int(payment_vals['amount']))" />
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

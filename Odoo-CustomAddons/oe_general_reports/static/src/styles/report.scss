@@ -1,0 +1,38 @@
+.bg-light-gray {
+    background-color: #ddd;
+}
+
+table,
+thead,
+tfoot {
+    font-size: .8rem;
+}
+
+thead {
+    line-height: 1.3rem;
+    color: black !important;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 0px 5px 0px 5px;
+    vertical-align: middle;
+}
+
+.meta-data {
+    font-size: .8rem;
+    line-height: 1.1rem;
+}
+
+.signature {
+    width: 180px;
+}
+
+.description {
+    font-size: small;
+
+    p {
+        margin-bottom: .5rem !important;
+    }
+}

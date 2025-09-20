@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- MEDICINE VIEWS -->
+    <record id="view_alan_medicine_kanban" model="ir.ui.view">
+        <field name="name">alan.pharma.medicine.kanban</field>
+        <field name="model">alan.pharma.medicine</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column" default_group_by="category">
+                <!-- Declare fields used inside the template -->
+                <field name="image"/>
+                <field name="name"/>
+                <field name="default_code"/>
+                <field name="barcode"/>
+                <field name="medicine_type"/>
+                <field name="category"/>
+                <field name="product_id"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record">
+                            <!-- Medicine Image -->
+                            <div class="o_kanban_image">
+                                <img t-if="record.image.value"
+                                     t-att-src="kanban_image('alan.pharma.medicine', 'image', record.id.value)"
+                                     class="oe_kanban_avatar" alt="Medicine Image"/>
+                            </div>
+
+                            <!-- Medicine Details -->
+                            <div class="o_kanban_details">
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                                <div>
+                                    <span class="text-muted">Code:</span>
+                                    <field name="default_code"/>
+                                </div>
+                                <div>
+                                    <span class="text-muted">Barcode:</span>
+                                    <field name="barcode"/>
+                                </div>
+                                <div>
+                                    <span class="text-muted">Type:</span>
+                                    <field name="medicine_type"/>
+                                </div>
+                                <div>
+                                    <span class="text-muted">Category:</span>
+                                    <field name="category"/>
+                                </div>
+                                <div>
+                                    <span class="text-muted">Linked Product:</span>
+                                    <field name="product_id"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="view_alan_medicine_list" model="ir.ui.view">
+        <field name="name">alan.pharma.medicine.list</field>
+        <field name="model">alan.pharma.medicine</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="default_code"/>
+                <field name="medicine_type"/>
+                <field name="total_quantity"/>
+                <field name="next_expiry"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_alan_medicine_form" model="ir.ui.view">
+        <field name="name">alan.pharma.medicine.form</field>
+        <field name="model">alan.pharma.medicine</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="default_code"/>
+                        <field name="barcode"/>
+                        <field name="medicine_type"/>
+                        <field name="category"/>
+                        <field name="product_id"/>
+                    </group>
+                    <group>
+                        <field name="image" widget="image" class="oe_avatar"/>
+                    </group>
+                    <notebook>
+                        <page string="Batches">
+                            <field name="batch_ids" nolabel="1">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="quantity"/>
+                                    <field name="expiry_date"/>
+                                    <field name="lot_barcode"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- MEDICINE ACTION & MENU -->
+    <record id="action_alan_medicine" model="ir.actions.act_window">
+        <field name="name">Medicines</field>
+        <field name="res_model">alan.pharma.medicine</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create medicines and manage their batches.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_pharmacy_root" name="Pharmacy" sequence="10"/>
+    <menuitem id="menu_pharmacy_medicines" name="Medicines" parent="menu_pharmacy_root" action="action_alan_medicine"/>
+
+</odoo>

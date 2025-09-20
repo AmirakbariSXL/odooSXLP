@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_alan_medicine,access_alan_medicine,model_alan_pharma_medicine,,1,1,1,1
+access_alan_batch,access_alan_batch,model_alan_pharma_batch,,1,1,1,1
+access_alan_patient,access_alan_patient,model_alan_pharma_patient,,1,1,1,1
+access_alan_doctor,access_alan_doctor,model_alan_pharma_doctor,,1,1,1,1
+access_alan_prescription,access_alan_prescription,model_alan_pharma_prescription,,1,1,1,1
+access_alan_prescription_line,access_alan_prescription_line,model_alan_pharma_prescription_line,,1,1,1,1
+
+access_alan_medicine,access_alan_medicine,model_alan_pharma_medicine,base.group_user,1,1,1,1
+access_alan_batch,access_alan_batch,model_alan_pharma_batch,base.group_user,1,1,1,1
+access_alan_patient,access_alan_patient,model_alan_pharma_patient,base.group_user,1,1,1,1
+access_alan_doctor,access_alan_doctor,model_alan_pharma_doctor,base.group_user,1,1,1,1
+access_alan_prescription,access_alan_prescription,model_alan_pharma_prescription,base.group_user,1,1,1,1
+access_alan_prescription_line,access_alan_prescription_line,model_alan_pharma_prescription_line,base.group_user,1,1,1,1

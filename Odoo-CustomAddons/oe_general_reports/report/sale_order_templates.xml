@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Landscape Report -->
+        <template id="report_saleorder_formal" name="Report Sale Order Formal" >
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="oe_general_reports.report_saleorder_document_content"/>
+                </t>
+            </t>
+        </template>
+        <template id="report_saleorder_informal" name="Report Sale Order Informal">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="oe_general_reports.report_saleorder_document_content">
+                        <t t-set="informal" t-value="True"/>
+                    </t>
+                </t>
+            </t>
+        </template>
+        <template id="report_saleorder_document_content">
+            <t t-call="oe_general_reports.sale_order_external_layout">
+                <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
+                <div class="page page--sale" dir="RTL">
+                    <table width="100%" border="1">
+                        <colgroup>
+                            <col span="1" style="width: 5%;" />
+                            <col span="1" style="width: 8%;" />
+                            <col span="1" style="width: 15%;" />
+                            <col span="1" style="width: 8%;" />
+                            <col span="1" style="width: 5%;" />
+                            <col span="1" style="width: 10%;" />
+                            <col span="1" style="width: 9%;" />
+                            <col span="1" style="width: 9%;" />
+                            <col span="1" style="width: 10%;" />
+                            <col span="1" style="width: 9%;" />
+                            <col span="1" style="width: 12%;" />
+                        </colgroup>
+                        <thead>
+                            <t t-if="not informal">
+                                <tr>
+                                    <th
+                            colspan="11"
+                            class="bg-light-gray text-center"
+                        >
+                            مشخصات فروشنده
+                        </th>
+                                </tr>
+                                <tr class="text-start">
+                                    <th colspan="4">
+                            نام شخص حقیقی/حقوقی:
+                                        <strong t-esc="doc.company_id.name"/>
+                                    </th>
+                                    <th colspan="4">
+                            شماره تماس ثابت:
+                                        <strong t-esc="doc.company_id.phone" class="o_force_ltr"/>
+                                    </th>
+                                    <th colspan="3">
+                            شماره تماس همراه:‌
+                                        <strong t-esc="doc.company_id.mobile" class="o_force_ltr"/>
+                                    </th>
+                                </tr>
+                                <tr class="text-start">
+                                    <th colspan="4">
+                            شناسه ملی:
+                                        <strong t-esc="doc.company_id.vat"/>
+                                    </th>
+                                    <th colspan="4">
+                            شماره ثبت:‌
+                                        <strong t-esc="doc.company_id.company_registry" class="o_force_ltr"/>
+                                    </th>
+                                    <th colspan="3">
+                                کد پستی ۱۰ رقمی:‌
+                                        <strong t-esc="doc.company_id.zip"/>
+                                    </th>
+                                </tr>
+                                <tr class="text-start">
+                                    <th colspan="11">
+                                        <span class="d-flex gap-2">
+                                            <span>نشانی کامل: </span>
+                                            <span class="d-flex gap-5">
+                                                <span class="mx-4">استان:
+                                                    <strong t-esc="doc.company_id.state_id.name"/>
+                                                </span>
+                                                <!-- <span class="mx-4">شهرستان: <strong t-esc="doc.company_id.city"/></span> -->
+                                                <span class="mx-4">شهر:
+                                                    <strong t-esc="doc.company_id.city"/>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </th>
+                                </tr>
+                                <tr class="text-start">
+                                    <th colspan="11">
+                                نشانی:
+                                        <strong t-field="doc.company_id.street" />
+                                        <strong t-field="doc.company_id.street2" />
+                                    </th>
+                                </tr>
+                            </t>
+                            <tr>
+                                <th
+                                colspan="11"
+                                class="bg-light-gray text-center"
+                            >
+                                مشخصات خریدار
+                            </th>
+                            </tr>
+                            <tr class="text-start">
+                                <th colspan="4">
+                                نام شخص حقیقی/حقوقی:
+                                    <strong t-field="doc.partner_invoice_id.name" />
+                                </th>
+                                <th colspan="4">
+                                شماره تماس ثابت:
+                                    <strong t-esc="doc.partner_invoice_id.phone" class="o_force_ltr"/>
+                                </th>
+                                <th colspan="3">
+                                شماره تماس همراه:‌
+                                    <strong t-esc="doc.partner_invoice_id.mobile" class="o_force_ltr"/>
+                                </th>
+                            </tr>
+                            <tr class="text-start">
+                                <th colspan="4">
+                                شناسه ملی/کد ملی:
+                                    <strong t-field="doc.partner_invoice_id.vat" />
+                                </th>
+                                <th colspan="4">
+                                شماره ثبت:‌
+                                    <strong t-field="doc.partner_invoice_id.company_registry" />
+                                </th>
+                                <th colspan="3">
+                                کد پستی ۱۰ رقمی:‌
+                                    <strong t-field="doc.partner_invoice_id.zip" />
+                                </th>
+                            </tr>
+                            <tr class="text-start">
+                                <th colspan="11">
+                                    <span class="d-flex gap-2">
+                                        <span>نشانی کامل: </span>
+                                        <span class="d-flex gap-5">
+                                            <span class="mx-4">استان:
+                                                <strong t-field="doc.partner_invoice_id.state_id.name" />
+                                            </span>
+                                            <!-- <span class="mx-4">شهرستان:</span> -->
+                                            <span class="mx-4">شهر:
+                                                <strong t-field="doc.partner_invoice_id.city" />
+                                            </span>
+                                        </span>
+                                    </span>
+                                </th>
+                            </tr>
+                            <tr class="text-start">
+                                <th colspan="11">
+                                نشانی:
+                                    <strong t-field="doc.partner_invoice_id.street" />
+                                    <strong t-field="doc.partner_invoice_id.street2" />
+                                </th>
+                            </tr>
+                            <tr>
+                                <th
+                                colspan="11"
+                                class="bg-light-gray text-center"
+                            >
+                                مشخصات کالا یا خدمات مورد معامله
+                            </th>
+                            </tr>
+                            <tr class="text-center">
+                                <th>ردیف</th>
+                                <th>
+                        شناسه
+                                    <br />
+                        کالا یا خدمت
+                                </th>
+                                <th>شرح
+                                    <br />کالا یا خدمت
+                                </th>
+                                <th>
+                        واحد
+                                    <br />
+                        اندازه‌گیری
+                                </th>
+                                <th>
+                        تعداد /
+                                    <br />
+                        مقدار
+                                </th>
+                                <th>
+                        مبلغ
+                                    <br />
+                        واحد (ریال)
+                                </th>
+                                <th>مبلغ کل
+                                    <br />قبل از تخفیف (ریال)
+                                </th>
+                                <th>
+                        مبلغ
+                                    <br />
+                        تخفیف (ریال)
+                                </th>
+                                <th>
+                        مبلغ کل
+                                    <br />
+                        پس از تخفیف (ریال)
+                                </th>
+                                <th>جمع
+                                    <br />مالیات و عوارض (ریال)
+                                </th>
+                                <th>
+                        مبلغ پس از تخفیف
+                                    <br />
+                        بعلاوه جمع مالیات و عوارض (ریال)
+                                </th>
+                            </tr>
+                        </thead>
+                        <t t-set="lines_to_report" t-value="doc._get_order_lines_to_report()"/>
+                        <tbody>
+                            <t t-foreach="lines_to_report" t-as="line">
+                                <tr t-if="doc.company_id.sale_discount_product_id.id != line.product_id.id">
+                                    <td class="text-center">
+                                        <span t-esc="(line_index+1)"/>
+                                    </td>
+                                    <td>
+                                </td>
+                                    <td>
+                                        <span t-esc="line.name"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-field="line.product_uom.name"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="'{:,}'.format(int(line.product_uom_qty))" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="'{:,}'.format(int(line.price_unit))" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="'{:,}'.format(int(line.amount_per_line))" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="'{:,}'.format(int(line.discount_per_line))" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="'{:,}'.format(int(line.price_subtotal))" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="'{:,}'.format(int(line.price_tax))" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="'{:,}'.format(int(line.amount_plus_tax_per_line))" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6" class="text-end">
+                                    <strong>جمع کل (ریال)</strong>
+                                </td>
+                                <td>
+                                    <span t-esc="'{:,}'.format(int(doc.subtotal_amount_per_line))" />
+                                </td>
+                                <td>
+                                    <span t-esc="'{:,}'.format(int(doc.subtotal_discount))" />
+                                </td>
+                                <td>
+                                    <span t-esc="'{:,}'.format(int(doc.amount_discounted))" />
+                                </td>
+                                <td>
+                                    <span t-esc="'{:,}'.format(int(doc.total_taxes))" />
+                                </td>
+                                <td>
+                                    <span t-esc="'{:,}'.format(int(doc.subtotal_amount_plus_tax_per_line))" />
+                                </td>
+                            </tr>
+                            <tr class="bg-light-gray">
+                                <th colspan="10" class="text-end">میزان تخفیف کلی (ریال)</th>
+                                <th class="text-start">
+                                    <span t-esc="'{:,}'.format(int(doc.total_discount))" />
+                                </th>
+                            </tr>
+                            <tr class="bg-light-gray">
+                                <th colspan="10" class="text-end">مبلغ قابل پرداخت (ریال)</th>
+                                <th class="text-start">
+                                    <span t-esc="'{:,}'.format(int(doc.amount_total))" />
+                                </th>
+                            </tr>
+                            <!-- <tr class="text-start">
+                                <th colspan="11">
+                                    <strong>توضیحات: </strong>
+                                </th>
+                            </tr> -->
+                            <!-- <tr>
+                            <th colspan="5" rowspan="2" class="align-top">
+                                <strong>توضیحات: </strong>
+                            </th>
+                            <th colspan="5">
+                                <span class="d-flex">
+                                    <span>روش تسویه:</span>
+                                    <span class="d-flex flex-fill justify-content-evenly">
+                                        <span>
+                                            <i class="fa-solid fa-square"></i> نقدی
+                                        </span>
+                                        <span>
+                                            <i class="fa-regular fa-square"></i> چکی
+                                        </span>
+                                        <span>
+                                            <i class="fa-regular fa-square"></i> اقساط
+                                        </span>
+                                    </span>
+                                </span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="5" class="persian-digits text-black-50">
+                                <div class="d-flex gap-5">
+                                    <div class="d-flex flex-column w-50">
+                                        <div class="d-flex justify-content-between">
+                                            <span>(1) تاریخ</span>
+                                            <span>مبلغ ریال</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <span>(2) تاریخ</span>
+                                            <span>مبلغ ریال</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <span>(3) تاریخ</span>
+                                            <span>مبلغ ریال</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <span>(4) تاریخ</span>
+                                            <span>مبلغ ریال</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column w-50">
+                                        <div class="d-flex justify-content-between">
+                                            <span>(5) تاریخ</span>
+                                            <span>مبلغ ریال</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <span>(6) تاریخ</span>
+                                            <span>مبلغ ریال</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <span>(7) تاریخ</span>
+                                            <span>مبلغ ریال</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <span>(8) تاریخ</span>
+                                            <span>مبلغ ریال</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr> -->
+                        </tfoot>
+                    </table>
+                    <div t-if="doc.note" class="description mt-3">
+                        <strong class="d-inline-block mb-2">توضیحات: </strong>
+                        <t t-esc="doc.note"/>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

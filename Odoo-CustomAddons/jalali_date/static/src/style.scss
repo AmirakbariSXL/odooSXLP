@@ -1,0 +1,9 @@
+.o_persian_disabled {
+    visibility: hidden;
+}
+.fc-daygrid-month-start {
+    font-weight: 400 !important;
+}
+.fc-jalaliDayGridMonth-view{
+    @extend .fc-dayGridMonth-view
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <report
+    id="alan_prescription_report"
+    model="alan.pharma.prescription"
+    string="Prescription"
+    report_type="qweb-pdf"
+    name="alan_pharmacy_management.prescription_template"
+    file="alan_pharmacy_management.prescription_template"/>
+</odoo>
